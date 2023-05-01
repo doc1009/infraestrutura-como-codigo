@@ -1,0 +1,62 @@
+#!/bin/bash
+
+cd /
+
+echo "criando direrórios...."
+
+sudo mkdir /publico
+
+sudo chmod 777 /publico
+
+sudo mkdir /adm
+
+sudo chown root:GRP_ADM /adm
+
+sudo chmod 770 /adm
+
+sudo mkdir /ven
+
+sudo chown root:GRP_VEN /ven
+
+sudo chmod 770 /ven
+
+sudo mkdir /sec
+
+sudo choun root:GRP_SEC /sec
+
+sudo chmod 770 /sec
+
+echo "criado os diretórios..."
+
+echo "criando grupos...."
+
+sudo groupadd GRP_ADM
+
+sudo groupadd GRP VEN
+
+sudo groupadd GRP SEC
+
+echo "grupos criados...."
+
+echo "criando usuarios..."
+
+sudo useradd carlos -c "carlos" -m -s /bin/bash -G GRP ADM -p $(openssl passwd -1 senha123)
+
+sudo useradd maria -c "maria" -m -s /bin/bash -G GRP ADM -p $(openssl passwd -1 senha123)
+
+sudo useradd Joao -c "joao" -m -s /bin/bash -G GRP ADN -p $(openssl passwd -1 senha123)
+
+sudo useradd debora -c "debora" -m -s /bin/bash -G GRP VEN -p $(openssl passwd -1 senha123)
+
+sudo useradd sebastiana -c "sebastiana" -m -s /bin/bash -G GRP_VEN -p $(openssl passwd -1 senha123)
+
+sudo useradd roberto -c "roberto" -m -s /bin/bash -G GRP_VEN -p $(openssl passwd -1 senha123)
+
+sudo useradd josefina -c "josefina" -m -s /bin/bash -G GRP_SEC -p $(openssl passwd -1 senha123)
+
+sudo useradd amanda -c "amanda" -m -s /bin/bash -G GRP_SEC -p $(openssl passwd -1 senha123)
+
+sudo useradd rogerio -c "rogerio" -m -s /bin/bash -G GRP_SEC -p $(openssl passwd -1 senha123)
+
+echo "finalizado os ususarios....."
+echo "fim do processo"
